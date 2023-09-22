@@ -231,7 +231,7 @@ def main():
 
         # Split the document into chunks
         splits = split_texts(loaded_text, chunk_size=1000,
-                             overlap=100, split_method=splitter_type)
+                             overlap=0, split_method=splitter_type)
 
         # Display the number of text chunks
         num_chunks = len(splits)
