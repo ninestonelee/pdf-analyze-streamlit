@@ -177,7 +177,7 @@ def main():
     st.write(
     f"""
     <div style="display: flex; align-items: center; margin-left: 0;">
-        <h1 style="display: inline-block;">PDF Analyzer</h1>
+        <h1 style="display: inline-block;">김주환 교수와의 대화</h1>
         <sup style="margin-left:5px;font-size:small; color: green;">beta</sup>
     </div>
     """,
@@ -215,7 +215,7 @@ def main():
     # else:
     #     os.environ["OPENAI_API_KEY"] = st.session_state.openai_api_key
 
-    uploaded_files = st.file_uploader("Upload a PDF or TXT Document", type=[
+    uploaded_files = st.file_uploader("PDF 또는 TXT 파일 업로드 ", type=[
                                       "pdf", "txt"], accept_multiple_files=True)
 
     if uploaded_files:
@@ -280,10 +280,10 @@ def main():
         st.write("Ready to answer questions.")
 
         # Question and answering
-        user_question = st.text_input("Enter your question:")
+        user_question = st.text_input("질문을 입력하세요:")
         if user_question:
             answer = qa.run(user_question)
-            st.write("Answer:", answer)
+            st.write("답변 :", answer)
 
 
 if __name__ == "__main__":
