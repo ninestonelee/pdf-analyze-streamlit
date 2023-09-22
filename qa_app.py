@@ -191,8 +191,8 @@ def main():
     
     st.sidebar.title("Menu")
     
-    embedding_option = st.sidebar.radio(
-        "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
+    # embedding_option = st.sidebar.radio(
+    #     "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
 
     retriever_type = "SIMILARITY SEARCH"
     # retriever_type = st.sidebar.selectbox(
