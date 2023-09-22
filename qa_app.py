@@ -240,7 +240,7 @@ def main():
         # Embed using OpenAI embeddings
             # Embed using OpenAI embeddings or HuggingFace embeddings
    #     if embedding_option == "OpenAI Embeddings":
-            embeddings = OpenAIEmbeddings()
+        embeddings = OpenAIEmbeddings()
    #     elif embedding_option == "HuggingFace Embeddings(slower)":
             # Replace "bert-base-uncased" with the desired HuggingFace model
    #         embeddings = HuggingFaceEmbeddings()
