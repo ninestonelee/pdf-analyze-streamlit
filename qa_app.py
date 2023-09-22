@@ -189,7 +189,7 @@ def main():
 
     
     
-    st.sidebar.title("Menu")
+    st.sidebar.title("질문 예제")
     
     # embedding_option = st.sidebar.radio(
     #     "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
@@ -268,7 +268,7 @@ def main():
             st.sidebar.markdown(
                 f"""
                 <div class="css-card">
-                <span class="card-tag">Question {i + 1}</span>
+                <span class="card-tag">질문  {i + 1}</span>
                     <p style="font-size: 12px;">{qa_pair['question']}</p>
                     <p style="font-size: 12px;">{qa_pair['answer']}</p>
                 </div>
@@ -277,7 +277,7 @@ def main():
             )
             # <h4 style="font-size: 14px;">Question {i + 1}:</h4>
             # <h4 style="font-size: 14px;">Answer {i + 1}:</h4>
-        st.write("Ready to answer questions.")
+        st.write("대화 준비!")
 
         # Question and answering
         user_question = st.text_input("질문을 입력하세요:")
