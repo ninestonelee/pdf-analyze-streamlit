@@ -194,9 +194,9 @@ def main():
     embedding_option = st.sidebar.radio(
         "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
 
-    
-    retriever_type = st.sidebar.selectbox(
-        "Choose Retriever", ["SIMILARITY SEARCH", "SUPPORT VECTOR MACHINES"])
+    retriever_type = "SIMILARITY SEARCH"
+    # retriever_type = st.sidebar.selectbox(
+    #     "Choose Retriever", ["SIMILARITY SEARCH", "SUPPORT VECTOR MACHINES"])
 
     # Use RecursiveCharacterTextSplitter as the default and only text splitter
     splitter_type = "RecursiveCharacterTextSplitter"
