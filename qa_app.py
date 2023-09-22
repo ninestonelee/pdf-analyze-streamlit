@@ -177,7 +177,7 @@ def main():
     st.write(
     f"""
     <div style="display: flex; align-items: center; margin-left: 0;">
-        <h1 style="display: inline-block;">김주환 교수와의 대화</h1>
+        <h1 style="display: inline-block;">PDF Analyzer</h1>
         <sup style="margin-left:5px;font-size:small; color: green;">beta</sup>
     </div>
     """,
@@ -191,8 +191,8 @@ def main():
     
     st.sidebar.title("Menu")
     
- #   embedding_option = st.sidebar.radio(
- #       "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
+    embedding_option = st.sidebar.radio(
+        "Choose Embeddings", ["OpenAI Embeddings", "HuggingFace Embeddings(slower)"])
 
     
     retriever_type = st.sidebar.selectbox(
@@ -215,7 +215,7 @@ def main():
     # else:
     #     os.environ["OPENAI_API_KEY"] = st.session_state.openai_api_key
 
-    uploaded_files = st.file_uploader("PDF 나 TXT 파일을 업로드해 주세요~", type=[
+    uploaded_files = st.file_uploader("Upload a PDF or TXT Document", type=[
                                       "pdf", "txt"], accept_multiple_files=True)
 
     if uploaded_files:
@@ -239,11 +239,11 @@ def main():
 
         # Embed using OpenAI embeddings
             # Embed using OpenAI embeddings or HuggingFace embeddings
-   #     if embedding_option == "OpenAI Embeddings":
-        embeddings = OpenAIEmbeddings()
-   #     elif embedding_option == "HuggingFace Embeddings(slower)":
+        if embedding_option == "OpenAI Embeddings":
+            embeddings = OpenAIEmbeddings()
+        elif embedding_option == "HuggingFace Embeddings(slower)":
             # Replace "bert-base-uncased" with the desired HuggingFace model
-   #         embeddings = HuggingFaceEmbeddings()
+            embeddings = HuggingFaceEmbeddings()
 
         retriever = create_retriever(embeddings, splits, retriever_type)
 
@@ -268,9 +268,9 @@ def main():
             st.sidebar.markdown(
                 f"""
                 <div class="css-card">
-                <span class="card-tag">샘플 질문 {i + 1}</span>
-                    <p style="font-size: 12px;">{qa_pair['질문']}</p>
-                    <p style="font-size: 12px;">{qa_pair['답변']}</p>
+                <span class="card-tag">Question {i + 1}</span>
+                    <p style="font-size: 12px;">{qa_pair['question']}</p>
+                    <p style="font-size: 12px;">{qa_pair['answer']}</p>
                 </div>
                 """,
                 unsafe_allow_html=True,
@@ -280,7 +280,7 @@ def main():
         st.write("Ready to answer questions.")
 
         # Question and answering
-        user_question = st.text_input("무엇이든 물어보세요 :")
+        user_question = st.text_input("Enter your question:")
         if user_question:
             answer = qa.run(user_question)
             st.write("Answer:", answer)
