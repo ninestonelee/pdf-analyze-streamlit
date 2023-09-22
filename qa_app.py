@@ -169,7 +169,7 @@ def main():
         """,
         unsafe_allow_html=True,
     )
-    st.sidebar.image("img/gpters_logo.png")
+    st.sidebar.image("img/ChatSapiens_logo.png")
 
 
    
